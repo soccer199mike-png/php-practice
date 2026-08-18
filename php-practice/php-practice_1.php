@@ -40,13 +40,11 @@ echo date ("Y年m月d日H時i分s秒");
 // Q4 条件分岐-1 if文
 
 $device = 'mac';
-if ($device === 'windows'){
-    echo '使用OSは、'.$device.'です。';
-}else{if ($device === 'mac'){
+if ($device === 'windows'||$device === 'mac'){
     echo '使用OSは、'.$device.'です。';
 }else{
     echo 'どちらでもありません。';
-}}
+}
 
 // Q5 条件分岐-2 三項演算子
 
@@ -59,23 +57,12 @@ if ($age < 18 ){
 
 // Q6 配列
 
-$array = ['東京都','埼玉県','栃木県','千葉県','神奈川県','群馬県','茨城県'];
-echo $array[2] . 'と' . $array[3] . 'は関東地方の都道府県です。';
+$kantouPrefecture = ['東京都','埼玉県','栃木県','千葉県','神奈川県','群馬県','茨城県'];
+echo $kantouPrefecture[2] . 'と' . $kantouPrefecture[3] . 'は関東地方の都道府県です。';
 
 // Q7 連想配列-1
 
-$array = ['東京都' => '新宿区','神奈川県' => '横浜市','千葉県' => '千葉市','埼玉県' => 'さいたま市','栃木県' => '宇都宮市','群馬県' => '前橋市','茨城県' => '水戸市'];
-echo $array['東京都'] ."\n". $array['神奈川県'] ."\n". $array['千葉県'] ."\n". $array['埼玉県'] ."\n". $array['栃木県'] ."\n". $array['群馬県'] ."\n". $array['茨城県'] ."\n";
-
-// Q8 連想配列-2
-
-$array = ['東京都' => '新宿区','神奈川県' => '横浜市','千葉県' => '千葉市','埼玉県' => 'さいたま市','栃木県' => '宇都宮市','群馬県' => '前橋市','茨城県' => '水戸市'];
-$keys = array_keys($array);
-echo $keys[3].'の県庁所在地は' . $array['埼玉県'] . 'です。';
-
-// Q9 連想配列-3
-
-$array = [
+$kantouPrefecture = [
     '東京都' => '新宿区',
     '神奈川県' => '横浜市',
     '千葉県' => '千葉市',
@@ -84,14 +71,31 @@ $array = [
     '群馬県' => '前橋市',
     '茨城県' => '水戸市'
     ];
+    
+foreach($kantouPrefecture as $value){
+    echo $value . "\n";
+}
 
-$cities = ['東京都', '神奈川県', '千葉県', '埼玉県', '栃木県', '群馬県', '茨城県', '愛知県', '大阪府'];
+// Q8 連想配列-2
 
-foreach ($cities as $city) {
-    if (array_key_exists($city , $array)){
-        echo $city . 'の県庁所在地は' . $array[$city] . 'です。' . "\n";
+$prefecture = '埼玉県';
+if ($prefecture === '埼玉県'){
+echo $prefecture.'の県庁所在地は' . $kantouPrefecture[$prefecture] . 'です。';
+}
+// Q9 連想配列-3
+
+$otherPrefecture = [
+    '愛知県' => '名古屋市',
+    '大阪府' => '大阪市'
+];
+
+$allPrefecture = $kantouPrefecture + $otherPrefecture;
+
+foreach ($allPrefecture as $prefecture => $capital) {
+    if (array_key_exists($prefecture , $kantouPrefecture)) {
+        echo $prefecture . 'の県庁所在地は' . $capital. 'です。' . "\n";
     } else {
-        echo $city . 'は関東地方ではありません。' . "\n";
+        echo $prefecture . 'は関東地方ではありません。' . "\n";
     }
 }
 
@@ -120,11 +124,10 @@ function distinguishNum($num) {
 
 if ($num % 2 === 0){
     echo $num . "は偶数です。"."\n";
-}
-else{
-    echo $num . "は奇数です。"."\n";
-}
-}
+    }else{
+        echo $num . "は奇数です。"."\n";
+    }
+}   
 
 $numbers = [11,24];
 
@@ -142,17 +145,17 @@ switch ($grade) {
         echo '合格です。' . "\n";
         break;
 
-    case 'C':
-        echo '合格ですが追加課題があります。' . "\n";
-        break;    
+        case 'C':
+            echo '合格ですが追加課題があります。' . "\n";
+            break;    
         
-    case 'D':
-        echo '不合格です。' . "\n";
-        break;
+            case 'D':
+                echo '不合格です。' . "\n";
+                break;
 
-    default:
-        echo '判定不明です。講師に問い合わせてください。' . "\n";
-        break;
+                default:
+                    echo '判定不明です。講師に問い合わせてください。' . "\n";
+                    break;
 }}
 
 $grades = ['A','f'];

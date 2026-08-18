@@ -4,19 +4,19 @@
 echo "1から100までのカウントを開始します\n\n";
 
 for ($i = 1; $i <= 100; $i++){
-    if($i %5 === 0 and $i % 4 === 0){
-    echo "tic-tac\n";
+    if($i % 5 === 0 && $i % 4 === 0){
+        echo "tic-tac\n";
     }
     elseif($i % 4 === 0){
-    echo "tic\n";
+        echo "tic\n";
     }
     elseif($i % 5 === 0){
-    echo "tac\n";
+        echo "tac\n";
     }
     else{
         echo $i . "\n";
     }
-    }
+}
 
 
 // Q2 多次元連想配列
@@ -44,8 +44,7 @@ echo $personalInfos[1]['name'] . "の電話番号は" . $personalInfos[1]['tel']
 // Q=2
 foreach ($personalInfos as $index => $personalInfo){
     $number = $index + 1;
-echo $number . "番目の" . $personalInfos[$index]['name'] . "のメールアドレスは" . $personalInfos[$index]['mail'] . "で"
- . "、電話番号は" . $personalInfos[$index]['tel'] . "です。\n";
+echo $number . "番目の" . $personalInfo['name'] . "のメールアドレスは" . $personalInfos['mail'] . "で" . "、電話番号は" . $personalInfo['tel'] . "です。\n";
 }
 // Q=3
 
